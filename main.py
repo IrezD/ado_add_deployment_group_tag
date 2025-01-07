@@ -3,9 +3,9 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # Azure DevOps configuration
-ORGANIZATION = "dennyOwie"  
-PROJECT = "my_project"            
-PAT = "CKJWXigKEosnO2TMP4KFL1hsfKy78aqhwO3Cd2SpNbLsMxIh1nZIJQQJ99BAACAAAAAAAAAAAAASAZDOEgTh"
+ORGANIZATION = ""  
+PROJECT = ""            
+PAT = ""
 
 # Base URL for Azure DevOps REST API
 BASE_URL = f"https://dev.azure.com/{ORGANIZATION}/{PROJECT}/_apis/distributedtask/deploymentgroups"
