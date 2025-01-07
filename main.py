@@ -3,9 +3,9 @@ from requests.auth import HTTPBasicAuth
 import json
 
 # Azure DevOps configuration
-ORGANIZATION = ""  
-PROJECT = ""            
-PAT = ""
+ORGANIZATION = "dennyOwie"  
+PROJECT = "my_project"            
+PAT = "CKJWXigKEosnO2TMP4KFL1hsfKy78aqhwO3Cd2SpNbLsMxIh1nZIJQQJ99BAACAAAAAAAAAAAAASAZDOEgTh"
 
 # Base URL for Azure DevOps REST API
 BASE_URL = f"https://dev.azure.com/{ORGANIZATION}/{PROJECT}/_apis/distributedtask/deploymentgroups"
@@ -18,13 +18,14 @@ def get_deployment_groups():
     return response.json().get("value", [])
 
 
+
 def main():
     try:
         print("Fetching deployment groups...")
         deployment_groups = get_deployment_groups()
 
         for dg in deployment_groups:
-            if (dg['pool']['size'] == 1):
+             if "app" in dg["name"].lower():  # Case-insensitive match for "demo"
                 dg_id = dg["id"]
                 dg_name = dg["name"]
                 print(f"Adding tag 'web' to shared deployment group: {dg_name} (ID: {dg_id})")
@@ -45,7 +46,7 @@ def main():
                     data = response.json()
                     
                     
-                    data['tags'] = ['APP']
+                    data['tags'] = ['APP-Specific-use']
                     
                     response = requests.patch(url, auth=(HTTPBasicAuth('', PAT)), json=data)
                     response.raise_for_status()
