@@ -9,21 +9,6 @@ PAT = ""
 
 # Base URL for Azure DevOps REST API
 BASE_URL = f"https://dev.azure.com/{ORGANIZATION}/{PROJECT}/_apis/distributedtask/deploymentgroups"
-# HEADERS = {
-#     "Content-Type": "application/json",
-#     "Authorization": f"Basic {requests.auth._basic_auth_str('', PAT)}"
-# }
-
-# GET https://dev.azure.com/dennyOwie/my_project/_apis/distributedtask/deploymentgroups?api-version=7.1
-
-# Target listing = https://dev.azure.com/dennyOwie/my_project/_apis/distributedtask/deploymentgroups/12/targets?api-version=7.1
-
-
-
-
-# print("Fetching target ...")
-
-
 
 
 def get_deployment_groups():
